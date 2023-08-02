@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+    crossorigin="anonymous"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    .flexbox {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+    }
+
+    .out {
+      width: 100%;
+      height: 100px;
+      border-radius: 8px;
+      background-color: black;
+      box-shadow: 0px 2px 7px white;
+      transition: 2s;
+
+    }
+
+    .left {
+      width: 30%;
+
+    }
+
+    .left img {
+      width: 150px;
+    }
+
+    .right {
+      width: 50%;
+    }
+
+    .right li {
+      list-style-type: none;
+      font-size: larger;
+      color: aliceblue;
+    }
+
+    .right a:hover {
+      color: rgb(255, 127, 191);
+    }
+
+    .mid {
+      backdrop-filter: blur;
+
+    }
+
+    .head {
+      position: absolute;
+      top: 300px;
+      right: 450px;
+      align-items: center;
+      color: white;
+      font-size: smaller;
+      font-family: Arial, Helvetica, sans-serif;
+
+
+    }
+
+    .form {
+      position: absolute;
+      top: 400px;
+      right: 400px;
+
+    }
+
+    .inp1 {
+      position: absolute;
+      right: 450px;
+    }
+
+    .inp2 {
+      position: absolute;
+      right: 270px;
+    }
+
+    .inp3 {
+      position: absolute;
+      right: 90px;
+    }
+
+    .carousel-indicators {
+      width: 1300px;
+      height: 400px;
+
+      align-items: center;
+      justify-content: last baseline;
+    }
+
+    .carousel-inner {
+      width: 1350px;
+      height: 60vh;
+      transition: 2s;
+
+
+    }
+
+    .carousel-item active {
+      width: 00px;
+
+    }
+
+    .carousel-item img {
+      width: 500px;
+      height: 50vh;
+    }
+
+
+    .carousel-item img {
+      width: 100pz;
+      height: 350px;
+      background-color: aqua;
+    }
+
+    h1 {
+      color: rgba(25, 0, 255, 0.205);
+      font-size: 48px;
+      text-align: center;
+      animation: abc 5s backwards infinite;
+    }
+
+    @keyframes abc {
+      from {
+
+        text-align: left;
+        font-size: 50px;
+        background-color: rgb(153, 206, 118);
+
+
+      }
+
+      to {
+        text-align: right;
+        font-size: 100px;
+        background-color: rgb(106, 202, 103);
+
+      }
+    }
+
+    .out1 {
+      width: 100%;
+      height: 600px;
+      background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTvoQFVzftoDUtaThBxjjGEpWLZz5YsScsiiMXYv_zOn1FrIASUa4ReBZOaA-Lqr5FtscY&usqp=CAU);
+      background-size: cover;
+      background-position: center;
+    }
+
+    .left,
+    .ri {
+      width: 45%;
+      font-size: 28px;
+
+    }
+
+    .left img {
+      width: 250px;
+      height: 100px;
+    }
+
+    .ri {
+      color: white;
+    }
+
+    .center {
+
+
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .blur {
+            width: 100%;
+            height: 600px;
+            backdrop-filter: blur(5px);
+            /* backdrop-filter: invert(102%); */
+        }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="out flexbox">
+      <div class="left">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="LOGO">
+      </div>
+      <div class="right">
+        <ul class="flexbox">
+          <li><a href="">Vendors </a>
+
+
+          </li>
+          <li><a href="">Blogs</a></li>
+          <li><a href="">Search</a></li>
+          <li><a href="">Login</a></li>
+
+
+          </li>
+
+
+        </ul>
+      </div>
+
+    </div>
+
+  </header>
+  <div class="mid">
+    <img
+      src="https://knotsbyamp.com/wp-content/uploads/sites/1/rippu/Maharashtrian-Telugu-Wedding-at-Pandit-Farms-Pune-44-of-135.JPG"
+      width="1350px" height="600px" alt="">
+    <div class="head">
+      <h3> Indian Largest Photography Platform</h3>
+    </div>
+
+
+
+  </div>
+
+
+
+  <div class="form">
+
+
+    <form>
+
+      <fieldset>
+
+
+
+        <div class="inp1"><input type="search" name="search" placeholder="photography"></div>
+        <div class="inp2"> <input type="Location " name="Location" placeholder="PUNE"></div>
+        <div class="inp3"><input type="search" name="search" placeholder="VENDOR"></div>
+
+
+
+
+      </fieldset>
+
+
+    </form>
+
+
+
+  </div>
+
+  <br>
+
+
+  <div id="carouselBasicExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+
+    <div class="carousel-indicators">
+      <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0" class="active"
+        aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <! Inner -->
+      <div class="carousel-inner">
+        <!-- Single item -->
+        <div class="carousel-item active">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmNXoHVQcJelioPdN0MYXW8Gr-TTAIG9SPtw&usqp=CAU"
+            class="d-block w-100" alt="Sunset Over the City" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Photographer</p>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <img
+            src="https://content.jdmagicbox.com/comp/delhi/n1/011pxx11.xx11.230201150914.c8n1/catalogue/paired-in-heaven-noida-sector-133-delhi-wedding-photographers-117ejetwge-250.jpg"
+            class="d-block w-100" alt="Canyon at Nigh" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>wedding photography.</p>
+          </div>
+        </div>
+
+        <!-- Single item -->
+        <div class="carousel-item">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3vKew_L4nWSibE2PyJaKZ5WkGH_WLS8S1lw&usqp=CAU"
+            class="d-block w-100" alt="Cliff Above a Stormy Sea" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Wedding photography</p>
+          </div>
+        </div>
+      </div>
+      <!-- Inner -->
+
+      <!-- Controls -->
+      <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+  </div>
+  <!-- Carousel wrapper -->
+  </br>
+
+  <h1><i>PhOtOgrApHER SItE</i></h1>
+
+  ..........
+  <section>
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner p-5 cl">
+        <div class="carousel-item active">
+          <div class="container d-flex justify-content-around last-cr-font">
+            <div>
+              <a href="business.html">
+                <img class="col-12 w-100"
+                  src="https://www.shaadidukaan.com/vogue/wp-content/uploads/2019/10/Wedding-Photography-Poses.jpg"
+                  alt="...">
+              </a>
+            </div>
+            <div>
+              <a href="contracting.html">
+                <img class="col-12 w-100"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXadMsINj0owqt61samEMavQQhiZ3gU22stg&usqp=CAU"
+                  alt="...">
+              </a>
+            </div>
+            <div>
+              <a href="realestate.html">
+                <img class="col-12 w-100" width="500px"
+                  src="https://cdn0.weddingwire.in/article/9086/3_2/960/jpg/16809-creative-wedding-photography-avinash-dhoundhiyal-photography-lead-image.jpeg"
+                  alt="...">
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="container d-flex justify-content-around last-cr-font">
+            <div>
+              <a href="shipping.html">
+                <img class="col-12 w-100"
+                  src="https://cdn0.weddingwire.in/article/7973/original/1280/jpg/63797-muslim-marriage-images-irfan-younas-photography-9-the-grand-reception.jpeg"
+                  alt="...">
+
+              </a>
+            </div>
+            <div>
+              <a href="trading.html">
+                <img class="col-12 w-100"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSxeKB2U88fll6oVm1OrjzUuyyCZxV7tnUMAA&usqp=CAU"
+                  alt="...">
+
+              </a>
+            </div>
+            <div>
+              <a href="http://www.nibuae.com/">
+                <img class="col-12 w-100"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmNXoHVQcJelioPdN0MYXW8Gr-TTAIG9SPtw&usqp=CAU"
+                  alt="...">
+
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  <br>
+  <section>
+
+    <div class="out1">
+      <div class="blur flexbox">
+        <div class="left">
+          <div class="cen">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQM_MFF0ROQYdZQjHyvusnurYonBvFEutRppQRlTwKJCCawaR901BqFSRhb8ye7A_kZm4g&usqp=CAU"
+              alt="">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Hindu_rituals.png" alt="">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_cbBtliaOkyOCeSKUA8LwIYwq2sxTRWtyaGy0mpfHz0Tn8nJQSwh1qOPG5SkKTbHXq5Y&usqp=CAU"
+              alt="">
+            <img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShVv9JK_NL6x3sARYOSTOpofcQZPjRo8sElg&usqp=CAU"
+              alt="">
+
+
+          </div>
+        </div>
+        <div class="ri">
+          <div class="cen">
+            <h3>Wedding Photoshoot</h3>
+            <h2><bold><i>Wedding Photographers in India </bold></i></h2>
+              The biggest day of your life deserves to be captured by the most talented ones. Find the list of wedding photographers in all Indian cities. Both premium and budget photographers are listed in all categories including traditional, candid, drone & pre-wedding photography. Browse through their photos and reviews and contact them directly or simply request for a callback from us.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  </br>
+
+
+
+
+
+
+</body>
+
+</html>
